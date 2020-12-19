@@ -1,20 +1,28 @@
 <template>
   <div id="app">
-    <div
-      id="slider"
-      v-bind:style="{
-        transform: 'translateX(-100vw)'
-      }"
-    >
-      <Slide slideName="slide1" color="crimson" />
-      <Slide slideName="slide2" color="black" />
-      <Slide slideName="slide3" color="green" />
-      <Slide slideName="slide4" color="crimson" />
-      <Slide slideName="slide5" color="black" />
-    </div>
-    <div id="arrows">
-      <span class="arrow" id="arrow-left">+</span>
-      <span class="arrow" id="arrow-right">></span>
+    <div id="slider-container">
+      <div
+        id="slider"
+        v-bind:style="{
+          transform: `translateX(${-100 * activeSlide}vw)`,
+          transition: transitionTime + 's'
+        }"
+        v-on:transitionend="handleTransition"
+      >
+        <Slide slideName="slide1" color="crimson" />
+        <Slide slideName="slide2" color="black" />
+        <Slide slideName="slide3" color="green" />
+        <Slide slideName="slide4" color="crimson" />
+        <Slide slideName="slide5" color="black" />
+      </div>
+      <div id="arrows">
+        <span class="arrow" v-on:click="changeSlide(-1)" id="arrow-left"
+          >+</span
+        >
+        <span class="arrow" v-on:click="changeSlide(+1)" id="arrow-right"
+          >></span
+        >
+      </div>
     </div>
   </div>
 </template>
@@ -25,6 +33,29 @@
     name: 'App',
     components: {
       Slide
+    },
+    data() {
+      return {
+        activeSlide: 1,
+        transitionTime: 1
+      };
+    },
+    methods: {
+      changeSlide(change) {
+        if (this.transitionTime === 'none') this.transitionTime = 1;
+        if (
+          (this.activeSlide >= 4 && change === 1) ||
+          (this.activeSlide <= 0 && change === -1)
+        )
+          return;
+        this.activeSlide += change;
+      },
+      handleTransition() {
+        if (this.activeSlide === 4) {
+          this.transitionTime = 'none';
+          this.activeSlide = 1;
+        }
+      }
     }
   };
 </script>
@@ -47,15 +78,18 @@
     width: 100%
     height: 100vh
     position: relative
+  #slider-container
+    overflow: hidden
 
   #slider
     display: flex
+    width: 100vw
 
   #arrows
     position: fixed
     width: 100vw
     font-size: 120px
-    color: white
+    color: yellow
     display: flex
     justify-content: space-between
     top: 35vh

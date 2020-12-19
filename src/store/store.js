@@ -20,7 +20,8 @@ const images = {
 
 export const store = new Vuex.Store({
   state: {
-    slideImages: images
+    slideImages: images,
+    activeSlide: 0
   },
   mutations: {},
   actions: {}
