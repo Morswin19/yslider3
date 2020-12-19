@@ -58,15 +58,7 @@
         this.$store.commit('changeSlide', value);
       },
       goToSlide(num) {
-        if (num === 1) {
-          this.$store.state.activeSlide = 1;
-        }
-        if (num === 2) {
-          this.$store.state.activeSlide = 2;
-        }
-        if (num === 3) {
-          this.$store.state.activeSlide = 3;
-        }
+        this.$store.commit('goToSlide', num);
       }
     },
     computed: {
@@ -127,7 +119,7 @@
       .indicator
         width: 10px
         height: 10px
-        background: rgba(#ffffff, 0.8)
+        background: rgba(#ffffff, 0.7)
         margin: 0 10px
         border-radius: 50%
         cursor: pointer
