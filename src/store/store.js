@@ -11,14 +11,14 @@ const reactionData = {
     laugh: 0
   },
   slide2: {
-    likes: 2,
-    hearts: 2,
-    laugh: 2
+    likes: 0,
+    hearts: 0,
+    laugh: 0
   },
   slide3: {
-    likes: 3,
-    hearts: 3,
-    laugh: 3
+    likes: 0,
+    hearts: 0,
+    laugh: 0
   }
 };
 //starting data if local storage is empty
@@ -51,7 +51,6 @@ export const store = new Vuex.Store({
       if (state.activeSlide === 2) state.activeIndicator.slide2Active = true;
       if (state.activeSlide === 3 || state.activeSlide === 0)
         state.activeIndicator.slide3Active = true;
-      console.log(state.activeSlide);
     },
     handleTransition: state => {
       if (state.activeSlide === 4) {
@@ -73,6 +72,26 @@ export const store = new Vuex.Store({
       if (state.activeSlide === 2) state.activeIndicator.slide2Active = true;
       if (state.activeSlide === 3 || state.activeSlide === 0)
         state.activeIndicator.slide3Active = true;
+    },
+    reactionFunc: (state, payload) => {
+      if (payload.action === 'like' && payload.slide === 'slide2')
+        reactionData.slide1.likes++;
+      if (payload.action === 'like' && payload.slide === 'slide3')
+        reactionData.slide2.likes++;
+      if (payload.action === 'like' && payload.slide === 'slide4')
+        reactionData.slide3.likes++;
+      if (payload.action === 'heart' && payload.slide === 'slide2')
+        reactionData.slide1.hearts++;
+      if (payload.action === 'heart' && payload.slide === 'slide3')
+        reactionData.slide2.hearts++;
+      if (payload.action === 'heart' && payload.slide === 'slide4')
+        reactionData.slide3.hearts++;
+      if (payload.action === 'laugh' && payload.slide === 'slide2')
+        reactionData.slide1.laugh++;
+      if (payload.action === 'laugh' && payload.slide === 'slide3')
+        reactionData.slide2.laugh++;
+      if (payload.action === 'laugh' && payload.slide === 'slide4')
+        reactionData.slide3.laugh++;
     }
   },
   actions: {}

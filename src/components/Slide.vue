@@ -20,11 +20,17 @@
       </div>
     </div>
     <div class="action-container">
-      <i class="fas fa-thumbs-up"></i>
+      <i
+        v-on:click="reactionFunc('like', slideName)"
+        class="fas fa-thumbs-up"
+      ></i>
       <span>{{ reaction.likes }}</span>
-      <i class="fas fa-heart"></i>
+      <i v-on:click="reactionFunc('heart', slideName)" class="fas fa-heart"></i>
       <span>{{ reaction.hearts }}</span>
-      <i class="fas fa-grin-squint-tears"></i>
+      <i
+        v-on:click="reactionFunc('laugh', slideName)"
+        class="fas fa-grin-squint-tears"
+      ></i>
       <span>{{ reaction.laugh }}</span>
     </div>
   </div>
@@ -46,6 +52,9 @@
     methods: {
       changeSlide(value) {
         this.$store.commit('changeSlide', value);
+      },
+      reactionFunc(action, slide) {
+        this.$store.commit('reactionFunc', { action, slide });
       }
     },
     computed: {
