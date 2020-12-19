@@ -3,6 +3,9 @@ import Vuex from 'vuex';
 
 Vue.use(Vuex);
 
+const localReactionData = JSON.parse(localStorage.getItem('reactionData'));
+// const data = { ...localReactionData };
+
 //loading data from local storage
 const reactionData = {
   slide1: {
@@ -21,11 +24,15 @@ const reactionData = {
     laugh: 0
   }
 };
+
 //starting data if local storage is empty
+const startingReactionData = localReactionData
+  ? localReactionData
+  : reactionData;
 
 export const store = new Vuex.Store({
   state: {
-    reactionData,
+    reactionData: startingReactionData,
     activeSlide: 1,
     transitionTime: 1,
     activeIndicator: {
@@ -75,23 +82,27 @@ export const store = new Vuex.Store({
     },
     reactionFunc: (state, payload) => {
       if (payload.action === 'like' && payload.slide === 'slide2')
-        reactionData.slide1.likes++;
+        state.reactionData.slide1.likes++;
       if (payload.action === 'like' && payload.slide === 'slide3')
-        reactionData.slide2.likes++;
+        state.reactionData.slide2.likes++;
       if (payload.action === 'like' && payload.slide === 'slide4')
-        reactionData.slide3.likes++;
+        state.reactionData.slide3.likes++;
       if (payload.action === 'heart' && payload.slide === 'slide2')
-        reactionData.slide1.hearts++;
+        state.reactionData.slide1.hearts++;
       if (payload.action === 'heart' && payload.slide === 'slide3')
-        reactionData.slide2.hearts++;
+        state.reactionData.slide2.hearts++;
       if (payload.action === 'heart' && payload.slide === 'slide4')
-        reactionData.slide3.hearts++;
+        state.reactionData.slide3.hearts++;
       if (payload.action === 'laugh' && payload.slide === 'slide2')
-        reactionData.slide1.laugh++;
+        state.reactionData.slide1.laugh++;
       if (payload.action === 'laugh' && payload.slide === 'slide3')
-        reactionData.slide2.laugh++;
+        state.reactionData.slide2.laugh++;
       if (payload.action === 'laugh' && payload.slide === 'slide4')
-        reactionData.slide3.laugh++;
+        state.reactionData.slide3.laugh++;
+      localStorage.setItem('reactionData', JSON.stringify(state.reactionData));
+      // console.log(localReactionData);
+      // console.log(reactionData);
+      // console.log(data);
     }
   },
   actions: {}

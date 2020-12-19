@@ -75,11 +75,13 @@
       {{ activeSlide > 3 ? '1' : activeSlide === 0 ? '3' : activeSlide
       }}<span>/3</span>
     </div>
+  <Footer />
   </div>
 </template>
 
 <script>
   import Slide from './components/Slide.vue';
+  import Footer from './components/Footer.vue';
   import image1 from './assets/first.svg';
   import image2 from './assets/second.svg';
   import image3 from './assets/third.svg';
@@ -87,7 +89,8 @@
   export default {
     name: 'App',
     components: {
-      Slide
+      Slide,
+      Footer
     },
     data() {
       return {
