@@ -4,12 +4,28 @@ import Vuex from 'vuex';
 Vue.use(Vuex);
 
 //loading data from local storage
-const images = {};
+const reactionData = {
+  slide1: {
+    likes: 0,
+    hearts: 0,
+    laugh: 0
+  },
+  slide2: {
+    likes: 2,
+    hearts: 2,
+    laugh: 2
+  },
+  slide3: {
+    likes: 3,
+    hearts: 3,
+    laugh: 3
+  }
+};
 //starting data if local storage is empty
 
 export const store = new Vuex.Store({
   state: {
-    slideImages: images,
+    reactionData,
     activeSlide: 1,
     transitionTime: 1,
     activeIndicator: {
