@@ -21,8 +21,42 @@ const images = {
 export const store = new Vuex.Store({
   state: {
     slideImages: images,
-    activeSlide: 0
+    activeSlide: 1,
+    transitionTime: 1,
+    activeIndicator: {
+      slide1Active: true,
+      slide2Active: false,
+      slide3Active: false
+    }
   },
-  mutations: {},
+  mutations: {
+    changeSlide: (state, change) => {
+      if (state.transitionTime === 'none') state.transitionTime = 1;
+      if (
+        (state.activeSlide >= 4 && change === 1) ||
+        (state.activeSlide <= 0 && change === -1)
+      )
+        return;
+      state.activeSlide += change;
+      state.activeIndicator.slide1Active = false;
+      state.activeIndicator.slide2Active = false;
+      state.activeIndicator.slide3Active = false;
+      if (state.activeSlide === 1 || state.activeSlide === 4)
+        state.activeIndicator.slide1Active = true;
+      if (state.activeSlide === 2) state.activeIndicator.slide2Active = true;
+      if (state.activeSlide === 3 || state.activeSlide === 0)
+        state.activeIndicator.slide3Active = true;
+    },
+    handleTransition: state => {
+      if (state.activeSlide === 4) {
+        state.transitionTime = 'none';
+        state.activeSlide = 1;
+      }
+      if (state.activeSlide === 0) {
+        state.transitionTime = 'none';
+        state.activeSlide = 3;
+      }
+    }
+  },
   actions: {}
 });

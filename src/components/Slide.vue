@@ -1,8 +1,13 @@
 <template>
   <div v-bind:id="slideName">
-    <div class="slide-image" v-bind:style="{ background: color }"></div>
+    <div
+      class="slide-image"
+      v-bind:style="{
+        backgroundImage: `linear-gradient(90deg,${color1}, ${color2})`
+      }"
+    ></div>
     <div class="action-container">
-      <span>thumb</span>
+      <span>{{ activeSlide }} / 3</span>
       <span>121</span>
       <span>heart</span>
       <span>121</span>
@@ -17,18 +22,23 @@
     name: 'Slide',
     props: {
       slideName: String,
-      color: String
+      color1: String,
+      color2: String
     },
     data() {
       return {
-        background: {
-          slide1: 'red',
-          slide2: 'black',
-          slide3: 'green',
-          slide4: 'red',
-          slide5: 'black'
-        }
+        
       };
+    },
+    methods: {
+      changeSlide(value) {
+        this.$store.commit('changeSlide', value);
+      }
+    },
+    computed: {
+      activeSlide() {
+        return this.$store.state.activeSlide;
+      }
     }
   };
 </script>
@@ -40,11 +50,8 @@
     background-color: yellow
     background-size: cover
     background-position-y: center
-  #slide1, #slide4
+    position: relative
 
-  #slide2, #slide5
-
-  #slide3
 
   .action-container
     margin: 20px

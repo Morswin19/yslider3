@@ -9,20 +9,33 @@
         }"
         v-on:transitionend="handleTransition"
       >
-        <Slide slideName="slide1" color="crimson" />
-        <Slide slideName="slide2" color="black" />
-        <Slide slideName="slide3" color="green" />
-        <Slide slideName="slide4" color="crimson" />
-        <Slide slideName="slide5" color="black" />
+        <Slide slideName="slide1" color1="#583d72" color2="#9f5f80" />
+        <Slide slideName="slide2" color1="#9f5f80" color2="#583d72" />
+        <Slide slideName="slide3" color1="#583d72" color2="#70af85" />
+        <Slide slideName="slide4" color1="#70af85" color2="#9f5f80" />
+        <Slide slideName="slide5" color1="#9f5f80" color2="#583d72" />
       </div>
-      <div id="arrows">
-        <span class="arrow" v-on:click="changeSlide(-1)" id="arrow-left"
-          >+</span
-        >
-        <span class="arrow" v-on:click="changeSlide(+1)" id="arrow-right"
-          >></span
-        >
-      </div>
+    </div>
+    <div id="arrows">
+      <span class="arrow" v-on:click="changeSlide(-1)" id="arrow-left">+</span>
+      <span class="arrow" v-on:click="changeSlide(+1)" id="arrow-right">></span>
+    </div>
+    <div class="indicator-container">
+      <div
+        v-on:click="goToSlide(1)"
+        ref="slide1"
+        v-bind:class="{ indicator: true, active: activeIndicator.slide1Active }"
+      ></div>
+      <div
+        v-on:click="goToSlide(2)"
+        ref="slide2"
+        v-bind:class="{ indicator: true, active: activeIndicator.slide2Active }"
+      ></div>
+      <div
+        v-on:click="goToSlide(3)"
+        ref="slide3"
+        v-bind:class="{ indicator: true, active: activeIndicator.slide3Active }"
+      ></div>
     </div>
   </div>
 </template>
@@ -35,26 +48,36 @@
       Slide
     },
     data() {
-      return {
-        activeSlide: 1,
-        transitionTime: 1
-      };
+      return {};
     },
     methods: {
-      changeSlide(change) {
-        if (this.transitionTime === 'none') this.transitionTime = 1;
-        if (
-          (this.activeSlide >= 4 && change === 1) ||
-          (this.activeSlide <= 0 && change === -1)
-        )
-          return;
-        this.activeSlide += change;
-      },
       handleTransition() {
-        if (this.activeSlide === 4) {
-          this.transitionTime = 'none';
-          this.activeSlide = 1;
+        this.$store.commit('handleTransition');
+      },
+      changeSlide(value) {
+        this.$store.commit('changeSlide', value);
+      },
+      goToSlide(num) {
+        if (num === 1) {
+          this.$store.state.activeSlide = 1;
         }
+        if (num === 2) {
+          this.$store.state.activeSlide = 2;
+        }
+        if (num === 3) {
+          this.$store.state.activeSlide = 3;
+        }
+      }
+    },
+    computed: {
+      activeSlide() {
+        return this.$store.state.activeSlide;
+      },
+      transitionTime() {
+        return this.$store.state.transitionTime;
+      },
+      activeIndicator() {
+        return this.$store.state.activeIndicator;
       }
     }
   };
@@ -81,19 +104,46 @@
   #slider-container
     overflow: hidden
 
+  #arrows
+      position: fixed
+      width: 100vw
+      font-size: 120px
+      color: #ffffff
+      display: flex
+      justify-content: space-between
+      top: 35vh
+      transform: translateY(-50%)
+      cursor: pointer
+      .arrow
+        margin: 0 100px
+
+  .indicator-container
+      display: flex
+      position: absolute
+      top: calc(70vh - 40px)
+      left: 50%
+      transform: translateX(-50%)
+      align-items: center
+      .indicator
+        width: 10px
+        height: 10px
+        background: rgba(#ffffff, 0.8)
+        margin: 0 10px
+        border-radius: 50%
+        cursor: pointer
+        transition: 0.2s
+        &:hover
+          background: #ffffff
+      .active
+        width: 15px
+        height: 15px
+        background: rgba(#ffffff, 0)
+        border: 2px solid crimson
+        &:hover
+          background: rgba(#ffffff, 0)
+          cursor: default
+
   #slider
     display: flex
     width: 100vw
-
-  #arrows
-    position: fixed
-    width: 100vw
-    font-size: 120px
-    color: yellow
-    display: flex
-    justify-content: space-between
-    top: 35vh
-    transform: translateY(-50%)
-    .arrow
-      margin: 0 100px
 </style>
