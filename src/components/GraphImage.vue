@@ -139,4 +139,12 @@ svg
     to
         fill: #cccccc
 
+@media(max-width: 1025px)
+      svg
+          margin: 0 auto 50px
+@media(max-width: 600px)
+      svg
+          max-width: 70vw
+          margin: 0 auto 50px
+
 </style>

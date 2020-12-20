@@ -31,7 +31,7 @@
           color2="#eff8ff"
           v-bind:reaction="reactionData[2]"
           title="The Graph"
-          text="Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae"
+          text="Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem"
         />
       </div>
     </div>

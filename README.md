@@ -11,7 +11,6 @@
 - [Sections](#sections)
 - [Instruction to tun](#instruction-to-run)
 - [Instruction to use](#instruction-to-use)
-- [Where To Watch](#where-to-watch)
 - [Mockup](#mockup)
 - [Contact](#contact)
 
@@ -52,10 +51,6 @@ To run this application after cloning or downloading, make these steps:
 
 You have two ways to change slide. First way is to use arrows. Second way is to use indicators on the bottom of the slide. To every slide you can add four reactions. If you use this application for the first time, you will have 0 in every reaction. Every add of reactions will change the local Storage. When you reload, new data will be get from local storage.
 Have fun :)
-
-## Where to watch
-
-To watch this site, please visit: https://ysliderpk.netlify.app/
 
 ## Mockup
 

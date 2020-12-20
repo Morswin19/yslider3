@@ -117,10 +117,6 @@
           margin-bottom: 20px
     .img-container
       display: flex
-      img
-        max-height: 50vh
-        max-width: 50vw
-        margin: auto 20px
 
   .action-container
     display: flex
@@ -159,12 +155,11 @@
         width: 100%
         .text
           width: 50vw
-          margin: 100px 50px 50px 50px
+          margin: 100px 50px -50px
           text-align: center
           h1
       .img-container
-        img
-          margin: 0 auto 100px
+
   @media(max-width: 600px)
     .slide-image
       flex-direction: column
@@ -174,14 +169,11 @@
         width: 100%
         .text
           width: 60vw
-          margin: 100px 50px 20px 50px
+          margin: 100px 50px -50px 50px
           text-align: center
           h1
             font-size: 32px
           h2
             font-size: 16px
       .img-container
-        img
-          max-width: 70vw
-          margin: 0 auto 100px
 </style>
