@@ -13,7 +13,7 @@
           color1="#eff8ff"
           color2="#ffe5b9"
           v-bind:img="image2"
-          v-bind:reaction="reactionData.slide1"
+          v-bind:reaction="reactionData[0]"
           title="The Trees"
           text="There is unrest in the forest There is trouble with the trees For the maples want more sunlight And the oaks ignore their pleas"
         />
@@ -22,7 +22,7 @@
           color1="#ffe5b9"
           color2="#c9cbff"
           v-bind:img="image3"
-          v-bind:reaction="reactionData.slide2"
+          v-bind:reaction="reactionData[1]"
           title="Bike"
           text="I've got a bike. You can ride it if you like It's got a basket, a bell that rings and Things to make it look good"
         />
@@ -31,7 +31,7 @@
           color1="#c9cbff"
           color2="#eff8ff"
           v-bind:img="image1"
-          v-bind:reaction="reactionData.slide3"
+          v-bind:reaction="reactionData[2]"
           title="The Graph"
           text="Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae"
         />

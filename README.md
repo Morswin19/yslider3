@@ -56,6 +56,10 @@ Have fun :)
 
 To watch this site, please visit: https://ysliderpk.netlify.app/
 
+## Mockup
+
+<img src="https://raw.githubusercontent.com/Morswin19/yslider/main/src/assets/sitescreen.png">
+
 ## Contact
 
 Feel free to contact me: piotr.kalman85@gmail.com

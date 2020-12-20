@@ -4,26 +4,28 @@ import Vuex from 'vuex';
 Vue.use(Vuex);
 
 const localReactionData = JSON.parse(localStorage.getItem('reactionData'));
-// const data = { ...localReactionData };
 
 //loading data from local storage
-const reactionData = {
-  slide1: {
-    likes: 0,
-    hearts: 0,
+const reactionData = [
+  {
+    like: 0,
+    dislike: 0,
+    heart: 0,
     laugh: 0
   },
-  slide2: {
-    likes: 0,
-    hearts: 0,
+  {
+    like: 0,
+    dislike: 0,
+    heart: 0,
     laugh: 0
   },
-  slide3: {
-    likes: 0,
-    hearts: 0,
+  {
+    like: 0,
+    dislike: 0,
+    heart: 0,
     laugh: 0
   }
-};
+];
 
 //starting data if local storage is empty
 const startingReactionData = localReactionData
@@ -50,7 +52,6 @@ export const store = new Vuex.Store({
       if (state.activeSlide === 1) state.activeIndicator.slide1Active = true;
       if (state.activeSlide === 2) state.activeIndicator.slide2Active = true;
       if (state.activeSlide === 3) state.activeIndicator.slide3Active = true;
-      console.log(state.activeSlide);
     },
     goToSlide: (state, num) => {
       state.activeSlide = num;
@@ -62,30 +63,17 @@ export const store = new Vuex.Store({
       if (state.activeSlide === 3) state.activeIndicator.slide3Active = true;
     },
     reactionFunc: (state, payload) => {
-      if (payload.action === 'like' && payload.slide === 'slide1')
-        state.reactionData.slide1.likes++;
-      if (payload.action === 'like' && payload.slide === 'slide2')
-        state.reactionData.slide2.likes++;
-      if (payload.action === 'like' && payload.slide === 'slide3')
-        state.reactionData.slide3.likes++;
-      if (payload.action === 'dislike' && payload.slide === 'slide1')
-        state.reactionData.slide1.likes--;
-      if (payload.action === 'dislike' && payload.slide === 'slide2')
-        state.reactionData.slide2.likes--;
-      if (payload.action === 'dislike' && payload.slide === 'slide3')
-        state.reactionData.slide3.likes--;
-      if (payload.action === 'heart' && payload.slide === 'slide1')
-        state.reactionData.slide1.hearts++;
-      if (payload.action === 'heart' && payload.slide === 'slide2')
-        state.reactionData.slide2.hearts++;
-      if (payload.action === 'heart' && payload.slide === 'slide3')
-        state.reactionData.slide3.hearts++;
-      if (payload.action === 'laugh' && payload.slide === 'slide1')
-        state.reactionData.slide1.laugh++;
-      if (payload.action === 'laugh' && payload.slide === 'slide2')
-        state.reactionData.slide2.laugh++;
-      if (payload.action === 'laugh' && payload.slide === 'slide3')
-        state.reactionData.slide3.laugh++;
+      const { action, slide } = payload;
+      const slideNum = parseInt(slide.slice(-1)) - 1;
+      if (
+        state.reactionData[slideNum].like -
+          state.reactionData[slideNum].dislike ===
+          0 &&
+        action === 'dislike'
+      )
+        return;
+      state.reactionData[slideNum][action]++;
+
       localStorage.setItem('reactionData', JSON.stringify(state.reactionData));
     }
   },

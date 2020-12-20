@@ -23,13 +23,13 @@
         v-on:click="reactionFunc('like', slideName)"
         class="fas fa-thumbs-up"
       ></i>
-      <span>{{ reaction.likes }}</span>
+      <span>{{ likesToShow }}</span>
       <i
         v-on:click="reactionFunc('dislike', slideName)"
         class="fas fa-thumbs-down"
       ></i>
       <i v-on:click="reactionFunc('heart', slideName)" class="fas fa-heart"></i>
-      <span>{{ reaction.hearts }}</span>
+      <span>{{ reaction.heart }}</span>
       <i
         v-on:click="reactionFunc('laugh', slideName)"
         class="fas fa-grin-squint-tears"
@@ -49,10 +49,7 @@
       img: String,
       reaction: Object,
       title: String,
-      text: String,
-    },
-    data() {
-      return {};
+      text: String
     },
     methods: {
       changeSlide(value) {
@@ -68,6 +65,9 @@
       },
       reactionData() {
         return this.$store.state.reactionData;
+      },
+      likesToShow() {
+        return this.reaction.like - this.reaction.dislike;
       }
     }
   };
