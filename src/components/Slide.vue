@@ -51,6 +51,7 @@
       title: String,
       text: String
     },
+    //description of the methods in the store.js
     methods: {
       changeSlide(value) {
         this.$store.commit('changeSlide', value);
@@ -59,6 +60,7 @@
         this.$store.commit('reactionFunc', { action, slide });
       }
     },
+    //description of computed in the store.js
     computed: {
       activeSlide() {
         return this.$store.state.activeSlide;
@@ -66,6 +68,7 @@
       reactionData() {
         return this.$store.state.reactionData;
       },
+      //likes to show below slide
       likesToShow() {
         return this.reaction.like - this.reaction.dislike;
       }
@@ -75,19 +78,17 @@
 
 <style lang="sass" scoped>
   .slide-image
+    position: relative
     display: flex
     height: 70vh
     min-width: 100vw
-    background-color: yellow
     background-size: cover
     background-position-y: center
-    position: relative
     .text-container
       display: flex
       justify-content: flex-end
       max-height: 100%
       width: 50%
-      // background: rgba(0,0,0,0.3)
       color: #333333
       .text
         width: 30vw
@@ -104,10 +105,10 @@
         margin: auto 20px
 
   .action-container
-    margin: 20px
-    font-size: 20px
     display: flex
     align-items: center
+    margin: 20px
+    font-size: 20px
     i
       margin-left: 20px
       margin-right: 5px

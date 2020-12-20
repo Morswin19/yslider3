@@ -3,9 +3,10 @@ import Vuex from 'vuex';
 
 Vue.use(Vuex);
 
+//loading data from local storage
 const localReactionData = JSON.parse(localStorage.getItem('reactionData'));
 
-//loading data from local storage
+//starting reaction template, when local storage is empty
 const reactionData = [
   {
     like: 0,
@@ -27,16 +28,19 @@ const reactionData = [
   }
 ];
 
-//starting data if local storage is empty
 const startingReactionData = localReactionData
   ? localReactionData
   : reactionData;
 
 export const store = new Vuex.Store({
   state: {
+    //reactions data
     reactionData: startingReactionData,
+    //starting slide
     activeSlide: 2,
+    //slide transition time
     transitionTime: 1,
+    //slide indicators
     activeIndicator: {
       slide1Active: false,
       slide2Active: true,
@@ -44,6 +48,7 @@ export const store = new Vuex.Store({
     }
   },
   mutations: {
+    //change slide when click on the arrow
     changeSlide: (state, change) => {
       if (state.activeSlide) state.activeSlide += change;
       state.activeIndicator.slide1Active = false;
@@ -54,6 +59,7 @@ export const store = new Vuex.Store({
       if (state.activeSlide === 3) state.activeIndicator.slide3Active = true;
     },
     goToSlide: (state, num) => {
+      //change slide when click on the indicators
       state.activeSlide = num;
       state.activeIndicator.slide1Active = false;
       state.activeIndicator.slide2Active = false;
@@ -63,6 +69,7 @@ export const store = new Vuex.Store({
       if (state.activeSlide === 3) state.activeIndicator.slide3Active = true;
     },
     reactionFunc: (state, payload) => {
+      //change reaction data on click
       const { action, slide } = payload;
       const slideNum = parseInt(slide.slice(-1)) - 1;
       if (
@@ -76,6 +83,5 @@ export const store = new Vuex.Store({
 
       localStorage.setItem('reactionData', JSON.stringify(state.reactionData));
     }
-  },
-  actions: {}
+  }
 });

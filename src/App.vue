@@ -4,6 +4,7 @@
       <div
         id="slider"
         v-bind:style="{
+          //starting from the second slide
           transform: `translateX(${-100 * (activeSlide - 1)}vw)`,
           transition: transitionTime + 's'
         }"
@@ -90,6 +91,7 @@
         image3
       };
     },
+    //description of the methods in the store.js
     methods: {
       changeSlide(value) {
         this.$store.commit('changeSlide', value);
@@ -99,6 +101,7 @@
       }
     },
     computed: {
+      //description of computed in the store.js
       activeSlide() {
         return this.$store.state.activeSlide;
       },
@@ -118,42 +121,39 @@
 <style lang="sass">
   @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600;700&display=swap')
 
-  $sliderHeight: 70vh
-
   *
     margin: 0
     padding: 0
     box-sizing: border-box
 
   #app
+    position: relative
+    width: 100%
+    height: 100vh
     font-family: 'Josefin Sans', sans-serif
     -webkit-font-smoothing: antialiased
     -moz-osx-font-smoothing: grayscale
     text-align: center
-    width: 100%
-    height: 100vh
-    position: relative
   #slider-container
     overflow: hidden
-
   #arrows
-      position: fixed
-      width: 100vw
-      font-size: 120px
-      color: #6c63ff
-      display: flex
-      justify-content: space-between
-      top: 35vh
-      transform: translateY(-50%)
-      .arrow
-        margin: 0 100px
-        cursor: pointer
+    position: fixed
+    top: 35vh
+    display: flex
+    justify-content: space-between
+    width: 100vw
+    font-size: 120px
+    color: #6c63ff
+    transform: translateY(-50%)
+    .arrow
+      margin: 0 100px
+      cursor: pointer
 
   .indicator-container
-      display: flex
       position: absolute
       top: calc(70vh - 40px)
       left: 50%
+      display: flex
       transform: translateX(-50%)
       align-items: center
       .indicator

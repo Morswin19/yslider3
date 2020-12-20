@@ -23,7 +23,6 @@
     height: 75px
     background-image: linear-gradient(90deg, #666, #222)
     display: flex
-    // box-shadow: 0px -6px 10px 3px rgba(#A2B4C6,0.4)
     #footerContainer
       width: 90%
       display: flex
