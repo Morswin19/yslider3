@@ -80,7 +80,9 @@
         return this.$store.state.activeSlide;
       },
       reactionData() {
-        return this.$store.state.reactionData;
+        if (this.$store.state.reactionData) {
+          return this.$store.state.reactionData;
+        } else return '';
       },
       //likes to show below slide
       likesToShow() {
