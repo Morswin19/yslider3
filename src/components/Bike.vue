@@ -137,4 +137,15 @@ export default {
   #shirt, #shirt2
       transition: 0.3s
 
+  #leftwheel, #rightwheel
+      transform-origin: center
+      animation: rotate-wheel linear 1s infinite
+      transform-box: fill-box
+
+  @keyframes rotate-wheel
+    from
+        transform: rotate(0deg)
+    to
+        transform: rotate(360deg)
+
 </style>
