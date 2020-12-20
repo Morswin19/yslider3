@@ -25,7 +25,7 @@
         v-on:click="reactionFunc('like', slideName)"
         class="fas fa-thumbs-up"
       ></i>
-      <span>{{ likesToShow }}</span>
+      <span>{{ likesToShow ? likesToShow : 0 }}</span>
       <i
         v-on:click="reactionFunc('dislike', slideName)"
         class="fas fa-thumbs-down"
