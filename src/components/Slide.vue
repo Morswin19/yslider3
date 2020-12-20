@@ -85,10 +85,14 @@
       //likes to show below slide
       likesToShow() {
         const slideNum = parseInt(this.slideName.slice(-1)) - 1;
-        return (
-          this.$store.state.reactionData[slideNum].like -
-          this.$store.state.reactionData[slideNum].dislike
-        );
+        if (this.$store.state.reactionData[slideNum]) {
+          return (
+            this.$store.state.reactionData[slideNum].like -
+            this.$store.state.reactionData[slideNum].dislike
+          );
+        } else {
+          return 0;
+        }
       },
       textColor() {
         return this.$store.state.textColor;
