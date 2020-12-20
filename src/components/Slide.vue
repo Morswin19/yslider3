@@ -7,7 +7,7 @@
       }"
     >
       <div class="text-container">
-        <div class="text">
+        <div class="text" v-bind:style="{ color: textColor }">
           <h1>{{ title }}</h1>
           <h2>
             {{ text }}
@@ -15,7 +15,9 @@
         </div>
       </div>
       <div class="img-container">
-        <img v-bind:src="img" alt="" />
+        <Trees v-if="slideName === 'slide1'" />
+        <Bike v-if="slideName === 'slide2'" />
+        <GraphImage v-if="slideName === 'slide3'" />
       </div>
     </div>
     <div class="action-container">
@@ -40,8 +42,20 @@
 </template>
 
 <script>
+  import GraphImage from './GraphImage.vue';
+  import Trees from './Trees.vue';
+  import Bike from './Bike.vue';
+
   export default {
     name: 'Slide',
+    components: {
+      GraphImage,
+      Trees,
+      Bike
+    },
+    data() {
+      return {};
+    },
     props: {
       slideName: String,
       color1: String,
@@ -71,6 +85,9 @@
       //likes to show below slide
       likesToShow() {
         return this.reaction.like - this.reaction.dislike;
+      },
+      textColor() {
+        return this.$store.state.textColor;
       }
     }
   };
@@ -94,6 +111,7 @@
         width: 30vw
         margin: auto 50px
         text-align: right
+        transition: 0.3s
         h1
           font-size: 60px
           margin-bottom: 20px
