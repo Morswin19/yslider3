@@ -1,14 +1,61 @@
-# yslider
+# PIOTR KALMAN - Yslider
 
-## Project setup
-```
-yarn install
-```
+## General Info
 
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
+> Hello, Yslider is my new slider created in Vue.
 
-### Compiles and minifies for production
-```
+## Table of contents
+
+- [General info](#general-info)
+- [Technologies](#technologies)
+- [Sections](#sections)
+- [Instruction to tun](#instruction-to-run)
+- [Instruction to use](#instruction-to-use)
+- [Where To Watch](#where-to-watch)
+- [Contact](#contact)
+
+## Technologies
+
+    HTML5
+    CSS3
+    vue 2.6.11
+    vuex 3.6.0
+    eslint 6.7.2
+    prettier 3.20.0
+    node-sass 5.0.0
+    font-awesome
+    web browser local storage
+
+## Sections
+
+##### Slide Container
+
+- three slides, each of them have title, small subtitle and image
+
+##### Reaction Icons
+
+- three reaction icons with amount of likes, loves and laughs
+
+##### Footer
+
+- copyrights and github link to view the code
+
+## Instruction to run
+
+To run this application after cloning or downloading, make these steps:
+
+- yarn install (be sure that you are in the main project folder with package.json file)
+- yarn serve
+
+## Instruction to use
+
+You have two ways to change slide. First way is to use arrows. Second way is to use indicators on the bottom of the slide. To every slide you can add three reactions. If you use this application for the first time, you will have 0 in every reaction. Every add of reactions will change the local Storage. When you reload, new data will be get from local storage.
+Have fun :)
+
+## Where to watch
+
+To watch this site, please visit: https://ysliderpk.netlify.app/
+
+## Contact
+
+Feel free to contact me: piotr.kalman85@gmail.com

@@ -119,4 +119,117 @@
     span
       margin-left: 5px
       margin-right: 20px
+
+  @media(max-width: 1025px)
+    .slide-image
+      // display: flex
+      flex-direction: column
+      justify-content: center
+      // height: 70vh
+      // min-width: 100vw
+      // background-color: yellow
+      // background-size: cover
+      // background-position-y: center
+      // position: relative
+      .text-container
+        // display: flex
+        justify-content: space-around
+        // max-height: 100%
+        width: 100%
+        // background: rgba(0,0,0,0.3)
+        // color: #333333
+        .text
+          width: 50vw
+          margin: 100px 50px 50px 50px
+          text-align: center
+          // border: 5px solid red
+          h1
+            // font-size: 60px
+            // margin-bottom: 20px
+      .img-container
+        // display: flex
+        // border: 5px solid red
+        img
+          // max-height: 50vh
+          // max-width: 50vw
+          margin: 0 auto 100px
+
+    .action-container
+      // margin: 20px
+      // font-size: 20px
+      // display: flex
+      // align-items: center
+      i
+        // margin-left: 20px
+        // margin-right: 5px
+        // transition: 0.1s
+        // cursor: pointer
+        &:hover
+          // transform: scale(1.2)
+      i:nth-child(1)
+        // color: #6c63ff
+      i:nth-child(3)
+        // color: crimson
+      i:nth-child(5)
+        // color: #fdb827
+      span
+        // margin-left: 5px
+        // margin-right: 20px
+  @media(max-width: 600px)
+    .slide-image
+      // display: flex
+      flex-direction: column
+      justify-content: center
+      // height: 70vh
+      // min-width: 100vw
+      // background-color: yellow
+      // background-size: cover
+      // background-position-y: center
+      // position: relative
+      .text-container
+        // display: flex
+        justify-content: space-around
+        // max-height: 100%
+        width: 100%
+        // background: rgba(0,0,0,0.3)
+        // color: #333333
+        .text
+          width: 60vw
+          margin: 100px 50px 20px 50px
+          text-align: center
+          // border: 5px solid red
+          h1
+            font-size: 32px
+            // margin-bottom: 20px
+          h2
+            font-size: 16px
+      .img-container
+        // display: flex
+        // border: 5px solid red
+        img
+          // max-height: 50vh
+          max-width: 70vw
+          margin: 0 auto 100px
+
+    .action-container
+      // margin: 20px
+      // font-size: 20px
+      // display: flex
+      // align-items: center
+      i
+        // margin-left: 20px
+        // margin-right: 5px
+        // transition: 0.1s
+        // cursor: pointer
+        &:hover
+          // transform: scale(1.2)
+      i:nth-child(1)
+        // color: #6c63ff
+      i:nth-child(3)
+        // color: crimson
+      i:nth-child(5)
+        // color: #fdb827
+      span
+        // margin-left: 5px
+        // margin-right: 20px
 </style>

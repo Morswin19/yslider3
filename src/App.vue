@@ -75,7 +75,7 @@
       {{ activeSlide > 3 ? '1' : activeSlide === 0 ? '3' : activeSlide
       }}<span>/3</span>
     </div>
-  <Footer />
+    <Footer />
   </div>
 </template>
 
@@ -198,4 +198,64 @@
   #slider
     display: flex
     width: 100vw
+  @media(max-width: 1025px)
+    #arrows
+      // position: fixed
+      // width: 100vw
+      // font-size: 60px
+      // color: #6c63ff
+      // display: flex
+      // justify-content: space-between
+      // top: 35vh
+      // transform: translateY(-50%)
+      // cursor: pointer
+      .arrow
+        margin: 0 50px
+  @media(max-width: 600px)
+    #arrows
+      // position: fixed
+      // width: 100vw
+      font-size: 60px
+      // color: #6c63ff
+      // display: flex
+      // justify-content: space-between
+      // top: 35vh
+      // transform: translateY(-50%)
+      // cursor: pointer
+      .arrow
+        margin: 0 20px
+    #slide-number
+      // position: absolute
+      right: 20px
+      top: calc(70vh - 35px)
+      font-size: 32px
+      // color: crimson
+      span
+        // color: #333333
+        font-size: 24px
+    .indicator-container
+      // display: flex
+      // position: absolute
+      top: calc(70vh - 30px)
+      // left: 50%
+      // transform: translateX(-50%)
+      // align-items: center
+      .indicator
+        // width: 10px
+        // height: 10px
+        // background: rgba(#333333, 0.7)
+        // margin: 0 10px
+        // border-radius: 50%
+        // cursor: pointer
+        // transition: 0.2s
+        &:hover
+          // background: #333333
+      .active
+        // width: 15px
+        // height: 15px
+        // background: rgba(#ffffff, 0)
+        // border: 2px solid crimson
+        &:hover
+          // background: rgba(#ffffff, 0)
+          // cursor: default
 </style>
