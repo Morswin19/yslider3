@@ -25,22 +25,18 @@
         v-on:click="reactionFunc('like', slideName)"
         class="fas fa-thumbs-up"
       ></i>
-      <span>{{ likesToShow ? likesToShow : 0 }}</span>
+      <span>{{ likesToShow }}</span>
       <i
         v-on:click="reactionFunc('dislike', slideName)"
         class="fas fa-thumbs-down"
       ></i>
       <i v-on:click="reactionFunc('heart', slideName)" class="fas fa-heart"></i>
-      <span>{{
-        reactions[slideNum].heart ? reactions[slideNum].heart : 0
-      }}</span>
+      <span>{{ reaction.heart }}</span>
       <i
         v-on:click="reactionFunc('laugh', slideName)"
         class="fas fa-grin-squint-tears"
       ></i>
-      <span>{{
-        reactions[slideNum].laugh ? reactions[slideNum].laugh : 0
-      }}</span>
+      <span>{{ reaction.laugh }}</span>
     </div>
   </div>
 </template>
@@ -58,13 +54,10 @@
       Bike
     },
     data() {
-      return {
-        reactions: ''
-      };
+      return {};
     },
     props: {
       slideName: String,
-      slideNum: String,
       color1: String,
       color2: String,
       img: String,
@@ -87,28 +80,15 @@
         return this.$store.state.activeSlide;
       },
       reactionData() {
-        if (this.$store.state.reactionData) {
-          return this.$store.state.reactionData;
-        } else return '';
+        return this.$store.state.reactionData;
       },
       //likes to show below slide
       likesToShow() {
-        const slideNum = parseInt(this.slideName.slice(-1)) - 1;
-        if (this.$store.state.reactionData[slideNum]) {
-          return (
-            this.$store.state.reactionData[slideNum].like -
-            this.$store.state.reactionData[slideNum].dislike
-          );
-        } else {
-          return 0;
-        }
+        return this.reaction.like - this.reaction.dislike;
       },
       textColor() {
         return this.$store.state.textColor;
       }
-    },
-    created: function() {
-      this.reactions = this.$store.state.reactionData;
     }
   };
 </script>
