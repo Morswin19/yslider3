@@ -11,6 +11,7 @@
       >
         <Slide
           slideName="slide1"
+          slideNum="0"
           color1="#eff8ff"
           color2="#ffe5b9"
           v-bind:reaction="reactionData[0]"
@@ -19,6 +20,7 @@
         />
         <Slide
           slideName="slide2"
+          slideNum="1"
           color1="#ffe5b9"
           color2="#c9cbff"
           v-bind:reaction="reactionData[1]"
@@ -27,6 +29,7 @@
         />
         <Slide
           slideName="slide3"
+          slideNum="2"
           color1="#c9cbff"
           color2="#eff8ff"
           v-bind:reaction="reactionData[2]"

@@ -31,12 +31,12 @@
         class="fas fa-thumbs-down"
       ></i>
       <i v-on:click="reactionFunc('heart', slideName)" class="fas fa-heart"></i>
-      <span>{{ reaction.heart }}</span>
+      <span>{{ reactionData[slideNum].heart }}</span>
       <i
         v-on:click="reactionFunc('laugh', slideName)"
         class="fas fa-grin-squint-tears"
       ></i>
-      <span>{{ reaction.laugh }}</span>
+      <span>{{ reactionData[slideNum].laugh }}</span>
     </div>
   </div>
 </template>
@@ -58,6 +58,7 @@
     },
     props: {
       slideName: String,
+      slideNum: String,
       color1: String,
       color2: String,
       img: String,
