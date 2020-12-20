@@ -30,17 +30,17 @@
         v-on:click="reactionFunc('dislike', slideName)"
         class="fas fa-thumbs-down"
       ></i>
-      <!-- <i v-on:click="reactionFunc('heart', slideName)" class="fas fa-heart"></i>
+      <i v-on:click="reactionFunc('heart', slideName)" class="fas fa-heart"></i>
       <span>{{
-        reactionData[slideNum].heart ? reactionData[slideNum].heart : 0
+        reactions[slideNum].heart ? reactions[slideNum].heart : 0
       }}</span>
       <i
         v-on:click="reactionFunc('laugh', slideName)"
         class="fas fa-grin-squint-tears"
       ></i>
       <span>{{
-        reactionData[slideNum].laugh ? reactionData[slideNum].laugh : 0
-      }}</span> -->
+        reactions[slideNum].laugh ? reactions[slideNum].laugh : 0
+      }}</span>
     </div>
   </div>
 </template>
@@ -58,7 +58,9 @@
       Bike
     },
     data() {
-      return {};
+      return {
+        reactions: ''
+      };
     },
     props: {
       slideName: String,
@@ -104,6 +106,9 @@
       textColor() {
         return this.$store.state.textColor;
       }
+    },
+    created: function() {
+      this.reactions = this.$store.state.reactionData;
     }
   };
 </script>
