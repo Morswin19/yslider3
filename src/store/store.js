@@ -33,76 +33,60 @@ const startingReactionData = localReactionData
 export const store = new Vuex.Store({
   state: {
     reactionData: startingReactionData,
-    activeSlide: 1,
+    activeSlide: 2,
     transitionTime: 1,
     activeIndicator: {
-      slide1Active: true,
-      slide2Active: false,
+      slide1Active: false,
+      slide2Active: true,
       slide3Active: false
     }
   },
   mutations: {
     changeSlide: (state, change) => {
-      if (state.transitionTime === 'none') state.transitionTime = 1;
-      if (
-        (state.activeSlide >= 4 && change === 1) ||
-        (state.activeSlide <= 0 && change === -1)
-      )
-        return;
       if (state.activeSlide) state.activeSlide += change;
       state.activeIndicator.slide1Active = false;
       state.activeIndicator.slide2Active = false;
       state.activeIndicator.slide3Active = false;
-      if (state.activeSlide === 1 || state.activeSlide === 4)
-        state.activeIndicator.slide1Active = true;
+      if (state.activeSlide === 1) state.activeIndicator.slide1Active = true;
       if (state.activeSlide === 2) state.activeIndicator.slide2Active = true;
-      if (state.activeSlide === 3 || state.activeSlide === 0)
-        state.activeIndicator.slide3Active = true;
-    },
-    handleTransition: state => {
-      if (state.activeSlide === 4) {
-        state.transitionTime = 'none';
-        state.activeSlide = 1;
-      }
-      if (state.activeSlide === 0) {
-        state.transitionTime = 'none';
-        state.activeSlide = 3;
-      }
+      if (state.activeSlide === 3) state.activeIndicator.slide3Active = true;
+      console.log(state.activeSlide);
     },
     goToSlide: (state, num) => {
       state.activeSlide = num;
       state.activeIndicator.slide1Active = false;
       state.activeIndicator.slide2Active = false;
       state.activeIndicator.slide3Active = false;
-      if (state.activeSlide === 1 || state.activeSlide === 4)
-        state.activeIndicator.slide1Active = true;
+      if (state.activeSlide === 1) state.activeIndicator.slide1Active = true;
       if (state.activeSlide === 2) state.activeIndicator.slide2Active = true;
-      if (state.activeSlide === 3 || state.activeSlide === 0)
-        state.activeIndicator.slide3Active = true;
+      if (state.activeSlide === 3) state.activeIndicator.slide3Active = true;
     },
     reactionFunc: (state, payload) => {
-      if (payload.action === 'like' && payload.slide === 'slide2')
+      if (payload.action === 'like' && payload.slide === 'slide1')
         state.reactionData.slide1.likes++;
-      if (payload.action === 'like' && payload.slide === 'slide3')
+      if (payload.action === 'like' && payload.slide === 'slide2')
         state.reactionData.slide2.likes++;
-      if (payload.action === 'like' && payload.slide === 'slide4')
+      if (payload.action === 'like' && payload.slide === 'slide3')
         state.reactionData.slide3.likes++;
-      if (payload.action === 'heart' && payload.slide === 'slide2')
+      if (payload.action === 'dislike' && payload.slide === 'slide1')
+        state.reactionData.slide1.likes--;
+      if (payload.action === 'dislike' && payload.slide === 'slide2')
+        state.reactionData.slide2.likes--;
+      if (payload.action === 'dislike' && payload.slide === 'slide3')
+        state.reactionData.slide3.likes--;
+      if (payload.action === 'heart' && payload.slide === 'slide1')
         state.reactionData.slide1.hearts++;
-      if (payload.action === 'heart' && payload.slide === 'slide3')
+      if (payload.action === 'heart' && payload.slide === 'slide2')
         state.reactionData.slide2.hearts++;
-      if (payload.action === 'heart' && payload.slide === 'slide4')
+      if (payload.action === 'heart' && payload.slide === 'slide3')
         state.reactionData.slide3.hearts++;
-      if (payload.action === 'laugh' && payload.slide === 'slide2')
+      if (payload.action === 'laugh' && payload.slide === 'slide1')
         state.reactionData.slide1.laugh++;
-      if (payload.action === 'laugh' && payload.slide === 'slide3')
+      if (payload.action === 'laugh' && payload.slide === 'slide2')
         state.reactionData.slide2.laugh++;
-      if (payload.action === 'laugh' && payload.slide === 'slide4')
+      if (payload.action === 'laugh' && payload.slide === 'slide3')
         state.reactionData.slide3.laugh++;
       localStorage.setItem('reactionData', JSON.stringify(state.reactionData));
-      // console.log(localReactionData);
-      // console.log(reactionData);
-      // console.log(data);
     }
   },
   actions: {}

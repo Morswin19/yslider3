@@ -2,7 +2,7 @@
 
 ## General Info
 
-> Hello, Yslider is my new slider created in Vue.
+> Hello, Yslider is my new RWD slider created in Vue.
 
 ## Table of contents
 
