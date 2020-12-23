@@ -119,13 +119,13 @@ svg
 .line
     transition: 0.3s
 #button1
-    animation: buttonActivate 3s ease-in-out 0s infinite alternate
+    animation: buttonActivate 0.5s ease-in-out 0s infinite alternate
 #button2
-    animation: buttonActivate 3s ease-in-out 1s infinite
+    animation: buttonActivate 1s ease-in-out 1s infinite
 #button3
-    animation: buttonActivate 3s ease 2s infinite alternate
+    animation: buttonActivate 1.5s ease 2s infinite alternate
 #button4
-    animation: buttonActivate 3s ease-in-out 3s infinite alternate
+    animation: buttonActivate 2s ease-in-out 3s infinite alternate
 .buttons
 
 
