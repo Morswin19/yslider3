@@ -48,12 +48,10 @@ export const store = new Vuex.Store({
     },
     //starting text and arrow color, it will change when someone react on this slide
     textColor: '#333333',
-    graphColor: '#6C63FF',
-    tree1Color: '#6C63FF',
-    tree2Color: '#cccccc',
-    shirtColor: '#ffffff',
     animated: true,
-    dayColor: '#000069'
+    dayColor: '#000069',
+    graphState: 'normal',
+    graphColor: '#000069'
   },
   mutations: {
     //change slide when click on the arrow
@@ -89,27 +87,20 @@ export const store = new Vuex.Store({
       )
         return;
       if (action !== 'dislike') {
-        state.textColor = '#61b15a';
-        state.graphColor = '#61b15a';
-        state.tree1Color = '#61b15a';
-        state.tree2Color = '#61b15a';
-        state.shirtColor = '#61b15a';
+        state.textColor = '#17B800';
         state.dayColor = 'lawngreen';
+        state.graphState = 'up';
+        state.graphColor = '#17B800';
       } else {
         state.textColor = 'red';
-        state.graphColor = 'red';
-        state.tree1Color = 'rgba(0,0,0,0)';
-        state.tree2Color = 'rgba(0,0,0,0)';
-        state.shirtColor = 'red';
         state.dayColor = 'red';
+        state.graphColor = 'red';
+        state.graphState = 'down';
       }
       setTimeout(() => {
         state.textColor = '#333333';
-        state.graphColor = '#6C63FF';
-        state.tree1Color = '#6C63FF';
-        state.tree2Color = '#cccccc';
-        state.shirtColor = '#ffffff';
         state.animated = true;
+        state.graphState = 'normal';
       }, 2000);
       state.reactionData[slideNum][action]++;
 

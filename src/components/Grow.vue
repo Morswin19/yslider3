@@ -387,21 +387,41 @@
       <g id="graph">
         <path
           id="graph_2"
+          v-bind:class="{
+            'graf-animation': animated,
+            small: graphState === 'up',
+            big: graphState === 'down'
+          }"
           d="M579.129 900.572C579.129 904.575 575.882 907.82 571.875 907.82H434.293C430.286 907.82 427.039 904.575 427.039 900.572V517.257C427.039 513.253 430.286 510.009 434.293 510.009H571.875C575.882 510.009 579.129 513.253 579.129 517.257V900.572Z"
           v-bind:fill="graphColor"
         />
         <path
           id="graph_3"
+          v-bind:class="{
+            'graf-animation': animated
+          }"
           d="M771.999 902.84C771.999 905.69 768.754 908 764.749 908H627.249C623.244 908 620 905.69 620 902.84V515.16C620 512.31 623.244 510 627.249 510H764.75C768.755 510 772 512.31 772 515.16V902.84H771.999Z"
           v-bind:fill="graphColor"
         />
         <path
           id="graph_4"
+          v-bind:class="{
+            'graf-animation': animated,
+            small: graphState === 'down',
+            big: graphState === 'up'
+          }"
           d="M966 891.176C966 900.468 962.756 908 958.75 908H821.251C817.246 908 814 900.468 814 891.176V526.824C814 517.532 817.246 510 821.251 510H958.75C962.755 510 966 517.532 966 526.824V891.176Z"
           v-bind:fill="graphColor"
         />
       </g>
-      <g id="line">
+      <g
+        id="line"
+        v-bind:class="{
+          line: true,
+          'line-up': graphState === 'up',
+          'line-down': graphState === 'down'
+        }"
+      >
         <path
           id="Vector_76"
           d="M378.346 452C378.076 452 377.801 451.976 377.535 451.927C376.319 451.7 375.697 451.018 376.146 450.402L447.047 353.174C447.341 352.771 448.045 352.479 448.885 352.413C449.729 352.348 450.572 352.516 451.095 352.856L504.51 387.561L648.004 225.731C648.309 225.387 648.919 225.137 649.645 225.058C650.375 224.976 651.131 225.078 651.691 225.327L728.149 259.448L752.7 240.313C753.075 240.022 753.681 239.827 754.362 239.783C755.043 239.738 755.728 239.846 756.237 240.079L786.555 253.935L938.757 147.491C939.517 146.959 940.984 146.842 942.031 147.226C943.079 147.609 943.314 148.352 942.554 148.883L788.822 256.397C788.431 256.67 787.832 256.846 787.168 256.882C786.501 256.915 785.848 256.808 785.354 256.582L755.135 242.772L730.604 261.895C730.232 262.184 729.63 262.377 728.955 262.424C728.284 262.469 727.601 262.366 727.088 262.137L650.979 228.171L507.194 390.331C506.856 390.711 506.152 390.973 505.335 391.024C504.513 391.071 503.712 390.903 503.205 390.574L449.987 355.997L380.547 451.224C380.196 451.703 379.3 452 378.346 452Z"
@@ -421,7 +441,13 @@
   export default {
     computed: {
       graphColor() {
-        return this.$store.state.dayColor;
+        return this.$store.state.graphColor;
+      },
+      graphState() {
+        return this.$store.state.graphState;
+      },
+      animated() {
+        return this.$store.state.animated;
       }
     }
   };
@@ -432,13 +458,39 @@
     max-height: 50vh
     max-width: 500px
     margin: auto 20px
-    #line
+    .line
       transform: rotate(35deg) translateY(100px) translateX(100px)
       transform-origin: center
       transform-box: fill-box
+      transition: 0.3s
+    .line-up
+      transform: rotate(-10deg) translateY(50px) translateX(0px)
+    .line-down
+      transform: rotate(70deg) translateY(-30px) translateX(110px)
     #graph
-      #graph_4
-        fill: yellow
+      *
         transition: 0.3s
-        transform: scaleY(2)
+        animation-duration: 3s
+        animation-iteration-count: infinite
+      #graph_3
+        animation-delay: 1s
+      #graph_4
+        animation-delay: 2s
+      .graf-animation
+        animation-name: graf-color-change
+      .small
+        transform: scaleY(0.5) translateY(-80px)
+        transform-origin: bottom
+      .big
+        transform: scaleY(1.5) translateY(-300px)
+
+  @keyframes graf-color-change
+    from, 28%
+      fill: #000069
+    33%, 61%
+      fill: yellow
+    66%, 95%
+      fill: purple
+    to
+      fill: #000069
 </style>
