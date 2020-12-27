@@ -388,17 +388,17 @@
         <path
           id="graph_2"
           d="M579.129 900.572C579.129 904.575 575.882 907.82 571.875 907.82H434.293C430.286 907.82 427.039 904.575 427.039 900.572V517.257C427.039 513.253 430.286 510.009 434.293 510.009H571.875C575.882 510.009 579.129 513.253 579.129 517.257V900.572Z"
-          fill="#B2B2B2"
+          v-bind:fill="graphColor"
         />
         <path
           id="graph_3"
           d="M771.999 902.84C771.999 905.69 768.754 908 764.749 908H627.249C623.244 908 620 905.69 620 902.84V515.16C620 512.31 623.244 510 627.249 510H764.75C768.755 510 772 512.31 772 515.16V902.84H771.999Z"
-          fill="#838383"
+          v-bind:fill="graphColor"
         />
         <path
           id="graph_4"
           d="M966 891.176C966 900.468 962.756 908 958.75 908H821.251C817.246 908 814 900.468 814 891.176V526.824C814 517.532 817.246 510 821.251 510H958.75C962.755 510 966 517.532 966 526.824V891.176Z"
-          fill="#B2B2B2"
+          v-bind:fill="graphColor"
         />
       </g>
       <g id="line">
@@ -418,12 +418,27 @@
 </template>
 
 <script>
-  export default {};
+  export default {
+    computed: {
+      graphColor() {
+        return this.$store.state.dayColor;
+      }
+    }
+  };
 </script>
 
 <style lang="sass" scoped>
   svg
-        max-height: 50vh
-        max-width: 500px
-        margin: auto 20px
+    max-height: 50vh
+    max-width: 500px
+    margin: auto 20px
+    #line
+      transform: rotate(35deg) translateY(100px) translateX(100px)
+      transform-origin: center
+      transform-box: fill-box
+    #graph
+      #graph_4
+        fill: yellow
+        transition: 0.3s
+        transform: scaleY(2)
 </style>

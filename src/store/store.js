@@ -51,7 +51,9 @@ export const store = new Vuex.Store({
     graphColor: '#6C63FF',
     tree1Color: '#6C63FF',
     tree2Color: '#cccccc',
-    shirtColor: '#ffffff'
+    shirtColor: '#ffffff',
+    animated: true,
+    dayColor: '#000069'
   },
   mutations: {
     //change slide when click on the arrow
@@ -77,6 +79,7 @@ export const store = new Vuex.Store({
     reactionFunc: (state, payload) => {
       //change reaction data on click
       const { action, slide } = payload;
+      state.animated = false;
       const slideNum = parseInt(slide.slice(-1)) - 1;
       if (
         state.reactionData[slideNum].like -
@@ -91,12 +94,14 @@ export const store = new Vuex.Store({
         state.tree1Color = '#61b15a';
         state.tree2Color = '#61b15a';
         state.shirtColor = '#61b15a';
+        state.dayColor = 'lawngreen';
       } else {
         state.textColor = 'red';
         state.graphColor = 'red';
         state.tree1Color = 'rgba(0,0,0,0)';
         state.tree2Color = 'rgba(0,0,0,0)';
         state.shirtColor = 'red';
+        state.dayColor = 'red';
       }
       setTimeout(() => {
         state.textColor = '#333333';
@@ -104,6 +109,7 @@ export const store = new Vuex.Store({
         state.tree1Color = '#6C63FF';
         state.tree2Color = '#cccccc';
         state.shirtColor = '#ffffff';
+        state.animated = true;
       }, 2000);
       state.reactionData[slideNum][action]++;
 

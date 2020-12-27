@@ -14,7 +14,7 @@
           color1="#eff8ff"
           color2="#ffe5b9"
           v-bind:reaction="reactionData[0]"
-          title="The Trees"
+          title="Living Colours"
           text="There is unrest in the forest There is trouble with the trees For the maples want more sunlight And the oaks ignore their pleas"
         />
         <Slide

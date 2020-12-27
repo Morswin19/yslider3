@@ -271,79 +271,94 @@
       </g>
       <g id="days">
         <path
+          v-bind:class="{ animated }"
           id="day1"
           d="M195.621 404.267C195.646 407.313 193.197 409.802 190.148 409.826L124.211 410.361C121.164 410.385 118.674 407.937 118.65 404.891L118.114 338.988C118.09 335.942 120.539 333.453 123.587 333.429L189.525 332.894C192.572 332.87 195.063 335.318 195.087 338.364L195.621 404.267Z"
-          fill="#000069"
+          v-bind:fill="dayColor"
         />
         <path
+          v-bind:class="{ animated }"
           id="day2"
           d="M292.85 403.48C292.874 406.525 290.424 409.015 287.377 409.039L221.439 409.573C218.391 409.597 215.901 407.15 215.877 404.104L215.343 338.199C215.318 335.154 217.767 332.665 220.815 332.64L286.751 332.106C289.8 332.082 292.29 334.53 292.316 337.576L292.85 403.48Z"
-          fill="#000069"
+          v-bind:fill="dayColor"
         />
         <path
+          v-bind:class="{ animated }"
           id="day4"
           d="M487.305 401.904C487.33 404.949 484.88 407.438 481.832 407.463L415.895 407.997C412.847 408.021 410.357 405.573 410.332 402.527L409.798 336.623C409.774 333.578 412.223 331.089 415.271 331.065L481.209 330.531C484.256 330.506 486.746 332.953 486.771 335.999L487.305 401.904Z"
-          fill="#000069"
+          v-bind:fill="dayColor"
         />
         <path
+          v-bind:class="{ animated }"
           id="day5"
           d="M584.533 401.116C584.558 404.161 582.108 406.65 579.061 406.674L513.123 407.209C510.076 407.233 507.585 404.785 507.56 401.739L507.027 335.835C507.002 332.789 509.451 330.301 512.498 330.276L578.436 329.742C581.484 329.717 583.973 332.165 583.999 335.212L584.533 401.116Z"
-          fill="#000069"
+          v-bind:fill="dayColor"
         />
         <path
+          v-bind:class="{ animated }"
           id="day3"
           d="M390.076 402.691C390.101 405.737 387.651 408.226 384.604 408.25L318.666 408.785C315.619 408.809 313.128 406.361 313.103 403.315L312.57 337.411C312.546 334.366 314.995 331.876 318.042 331.852L383.98 331.317C387.027 331.293 389.517 333.741 389.542 336.787L390.076 402.691Z"
-          fill="#000069"
+          v-bind:fill="dayColor"
         />
         <path
+          v-bind:class="{ animated }"
           id="day6"
           d="M196.31 489.298C196.334 492.344 193.885 494.833 190.837 494.857L124.899 495.392C121.851 495.417 119.362 492.968 119.338 489.922L118.803 424.018C118.778 420.972 121.228 418.483 124.276 418.458L190.214 417.925C193.261 417.9 195.751 420.349 195.776 423.395L196.31 489.298Z"
-          fill="#000069"
+          v-bind:fill="dayColor"
         />
         <path
+          v-bind:class="{ animated }"
           id="day7"
           d="M293.539 488.51C293.564 491.555 291.114 494.044 288.066 494.07L222.129 494.603C219.082 494.627 216.591 492.18 216.567 489.134L216.032 423.229C216.008 420.184 218.457 417.695 221.505 417.671L287.442 417.136C290.49 417.112 292.98 419.559 293.005 422.606L293.539 488.51Z"
-          fill="#000069"
+          v-bind:fill="dayColor"
         />
         <path
+          v-bind:class="{ animated }"
           id="day9"
           d="M487.994 486.934C488.018 489.98 485.569 492.468 482.521 492.494L416.583 493.028C413.536 493.053 411.045 490.604 411.021 487.558L410.487 421.655C410.462 418.609 412.912 416.12 415.96 416.095L481.898 415.562C484.945 415.537 487.435 417.984 487.46 421.031L487.994 486.934Z"
-          fill="#000069"
+          v-bind:fill="dayColor"
         />
         <path
+          v-bind:class="{ animated }"
           id="day10"
           d="M585.223 486.148C585.248 489.191 582.798 491.682 579.75 491.706L513.813 492.24C510.766 492.264 508.275 489.816 508.251 486.77L507.716 420.867C507.691 417.822 510.141 415.332 513.188 415.307L579.126 414.773C582.174 414.748 584.664 417.197 584.688 420.243L585.223 486.148Z"
-          fill="#000069"
+          v-bind:fill="dayColor"
         />
         <path
+          v-bind:class="{ animated }"
           id="day8"
           d="M390.767 487.722C390.791 490.767 388.342 493.257 385.294 493.281L319.357 493.816C316.309 493.84 313.819 491.392 313.795 488.346L313.261 422.443C313.236 419.397 315.686 416.908 318.733 416.883L384.672 416.349C387.718 416.324 390.209 418.773 390.234 421.819L390.767 487.722Z"
-          fill="#000069"
+          v-bind:fill="dayColor"
         />
         <path
+          v-bind:class="{ animated }"
           id="day11"
           d="M197 574.328C197.025 577.373 194.575 579.863 191.527 579.888L125.589 580.422C122.542 580.447 120.052 577.998 120.027 574.952L119.493 509.049C119.468 506.004 121.918 503.515 124.966 503.49L190.903 502.955C193.951 502.931 196.441 505.379 196.465 508.425L197 574.328Z"
-          fill="#000069"
+          v-bind:fill="dayColor"
         />
         <path
+          v-bind:class="{ animated }"
           id="day12"
           d="M294.229 573.541C294.254 576.587 291.804 579.076 288.755 579.101L222.819 579.634C219.772 579.659 217.282 577.212 217.257 574.165L216.721 508.261C216.696 505.215 219.146 502.726 222.194 502.701L288.132 502.168C291.179 502.144 293.669 504.592 293.694 507.637L294.229 573.541Z"
-          fill="#000069"
+          v-bind:fill="dayColor"
         />
         <path
+          v-bind:class="{ animated }"
           id="day14"
           d="M488.684 571.966C488.709 575.011 486.259 577.501 483.211 577.524L417.273 578.058C414.226 578.083 411.736 575.636 411.711 572.59L411.177 506.685C411.153 503.639 413.602 501.151 416.65 501.125L482.588 500.592C485.635 500.568 488.125 503.015 488.15 506.062L488.684 571.966Z"
-          fill="#000069"
+          v-bind:fill="dayColor"
         />
         <path
+          v-bind:class="{ animated }"
           id="day15"
           d="M585.912 571.178C585.937 574.223 583.488 576.712 580.44 576.737L514.502 577.271C511.456 577.296 508.966 574.847 508.941 571.801L508.406 505.898C508.381 502.853 510.831 500.364 513.878 500.339L579.817 499.805C582.863 499.78 585.354 502.229 585.379 505.275L585.912 571.178Z"
-          fill="#000069"
+          v-bind:fill="dayColor"
         />
         <path
+          v-bind:class="{ animated }"
           id="day13"
           d="M391.457 572.754C391.482 575.8 389.032 578.287 385.984 578.313L320.047 578.846C316.999 578.872 314.509 576.423 314.485 573.376L313.951 507.472C313.926 504.428 316.376 501.939 319.424 501.914L385.36 501.38C388.409 501.355 390.898 503.804 390.924 506.85L391.457 572.754Z"
-          fill="#000069"
+          v-bind:fill="dayColor"
         />
       </g>
       <g id="hand">
@@ -358,12 +373,119 @@
 </template>
 
 <script>
-  export default {};
+  export default {
+    computed: {
+      animated() {
+        return this.$store.state.animated;
+      },
+      dayColor() {
+        return this.$store.state.dayColor;
+      }
+    }
+  };
 </script>
 
 <style lang="sass" scoped>
   svg
-        max-height: 50vh
-        max-width: 500px
-        margin: auto 20px
+    max-height: 50vh
+    max-width: 500px
+    margin: auto 20px
+    #days
+      *
+        transition: 0.2s
+      #day1
+        animation-duration: 10s
+        animation-iteration-count: infinite
+      #day2
+        animation-duration: 8s
+        animation-iteration-count: infinite
+        animation-delay: 0.2s
+        animation-direction: reverse
+      #day3
+        animation-duration: 7s
+        animation-iteration-count: infinite
+        animation-delay: 0.4s
+        animation-direction: alternate
+      #day4
+        animation-duration: 8s
+        animation-iteration-count: infinite
+        animation-delay: 0.4s
+        animation-direction: alternate-reverse
+      #day5
+        animation-duration: 15s
+        animation-iteration-count: infinite
+      #day6
+        animation-duration: 13s
+        animation-iteration-count: infinite
+        animation-delay: 0.4s
+        animation-direction: reverse
+      #day7
+        animation-duration: 11s
+        animation-iteration-count: infinite
+        animation-delay: 0.8s
+        animation-direction: alternate
+      #day8
+        animation-duration: 6s
+        animation-iteration-count: infinite
+        animation-direction: alternate-reverse
+      #day9
+        animation-duration: 9s
+        animation-iteration-count: infinite
+        animation-delay: 0.2s
+        animation-direction: reverse
+      #day10
+        animation-duration: 5s
+        animation-iteration-count: infinite
+        animation-delay: 1s
+        animation-direction: alternate
+      #day11
+        animation-duration: 14s
+        animation-iteration-count: infinite
+        animation-delay: 0.2s
+        animation-direction: alternate-reverse
+      #day12
+        animation-duration: 7s
+        animation-iteration-count: infinite
+        animation-delay: 0.6s
+      #day13
+        animation-duration: 10s
+        animation-iteration-count: infinite
+        animation-delay: 1s
+        animation-direction: reverse
+      #day14
+        animation-duration: 6s
+        animation-iteration-count: infinite
+        animation-delay: 0.8s
+        animation-direction: alternate
+      #day15
+        animation-duration: 12s
+        animation-iteration-count: infinite
+        animation-delay: 0.6s
+        animation-direction: alternate-reverse
+      .animated
+        animation-name: day-color-change
+
+  @keyframes day-color-change
+    from
+      fill: #000069
+    10%
+      fill: red
+    20%
+      fill: #000069
+    30%
+      fill: yellow
+    40%
+      fill: #000069
+    50%
+      fill: azure
+    60%
+      fill: #000069
+    70%
+      fill: lawngreen
+    80%
+      fill: #000069
+    90%
+      fill: orange
+    to
+      fill: #000069
 </style>
