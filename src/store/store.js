@@ -51,7 +51,11 @@ export const store = new Vuex.Store({
     animated: true,
     dayColor: '#000069',
     graphState: 'normal',
-    graphColor: '#000069'
+    graphColor: '#000069',
+    fastPlayColor: '#3868C9',
+    pauseColor: '#3868C9',
+    playColor: 'purple',
+    musicState: 'play'
   },
   mutations: {
     //change slide when click on the arrow
@@ -86,21 +90,30 @@ export const store = new Vuex.Store({
         action === 'dislike'
       )
         return;
+      state.playColor = '#3868C9';
       if (action !== 'dislike') {
         state.textColor = '#17B800';
         state.dayColor = 'lawngreen';
         state.graphState = 'up';
         state.graphColor = '#17B800';
+        state.fastPlayColor = '#17B800';
+        state.musicState = 'fast';
       } else {
         state.textColor = 'red';
         state.dayColor = 'red';
         state.graphColor = 'red';
         state.graphState = 'down';
+        state.pauseColor = 'red';
+        state.musicState = 'pause';
       }
       setTimeout(() => {
         state.textColor = '#333333';
         state.animated = true;
         state.graphState = 'normal';
+        state.fastPlayColor = '#3868C9';
+        state.pauseColor = '#3868C9';
+        state.musicState = 'play';
+        state.playColor = 'purple';
       }, 2000);
       state.reactionData[slideNum][action]++;
 

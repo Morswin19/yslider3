@@ -15,12 +15,9 @@
         </div>
       </div>
       <div class="img-container">
-        <!-- <Trees v-if="slideName === 'slide1'" /> -->
-        <Callendar v-if="slideName === 'slide1'" />
-        <Grow v-if="slideName === 'slide2'" />
-        <LikeSign v-if="slideName === 'slide3'" />
-        <!-- <Bike v-if="slideName === 'slide2'" /> -->
-        <!-- <GraphImage v-if="slideName === 'slide3'" /> -->
+        <Callendar v-if="slideName === 'slide2'" />
+        <Grow v-if="slideName === 'slide1'" />
+        <Listen v-if="slideName === 'slide3'" />
       </div>
     </div>
     <div class="action-container">
@@ -51,7 +48,8 @@
   // import Like from './Like.vue';
   // import Bike from './Bike.vue';
   import Grow from './Grow.vue';
-  import LikeSign from './LikeSign.vue';
+  // import LikeSign from './LikeSign.vue';
+  import Listen from './Listen.vue';
 
   export default {
     name: 'Slide',
@@ -61,7 +59,8 @@
       // Trees,
       // Bike
       Grow,
-      LikeSign
+      // LikeSign,
+      Listen
     },
     data() {
       return {};
